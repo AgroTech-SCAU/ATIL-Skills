@@ -21,24 +21,24 @@
 
 ## 在 Codex 中使用
 
-仓库根目录包含 `agrotech-notices/` 子目录，安装时应将这个子目录复制到个人技能目录，并确保目标文件夹中直接包含 `SKILL.md`
+本 Skill 位于协会 Skills 集合的 `skills/agrotech-notices/` 目录中，安装时仅复制这个 Skill 子目录，并确保目标文件夹中直接包含 `SKILL.md`
 
 默认个人技能目录为 ~/.codex/skills；如果设置了 CODEX_HOME，则使用其下的 skills 目录。
 
 Windows PowerShell 安装示例：
 
 ~~~powershell
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git
+git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
-Copy-Item -Recurse ".\agrotech-notices\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
+Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
 ~~~
 
 macOS / Linux 安装示例：
 
 ~~~sh
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git
+git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
 mkdir -p "$HOME/.codex/skills"
-cp -R agrotech-notices/agrotech-notices "$HOME/.codex/skills/"
+cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 ~~~
 
 以上命令用于首次安装，已经安装时请先备份原有同名目录再更新
@@ -77,10 +77,10 @@ cp -R agrotech-notices/agrotech-notices "$HOME/.codex/skills/"
 
 完整说明见 [SKILL.md](SKILL.md)。
 
-## 仓库结构
+## Skill 目录结构
 
 ~~~text
-agrotech-notices/
+skills/agrotech-notices/
 ├── README.md
 ├── SKILL.md
 ├── agents/

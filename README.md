@@ -1,81 +1,114 @@
-# AgroTech Innovation Lab · 通知写作 Skills
+# ATIL-Skills
 
-本仓库维护 AgroTech Innovation Lab 的通知写作 Skill，为成员管理、项目协作、比赛组织等场景提供中文通知与私聊回复的写作支持
+AgroTech Innovation Lab 统一维护的 AI Agent Skills 集合
 
-目前包含 `agrotech-notices`，可用于起草新通知、润色已有文稿，以及参考已整理的八类常用模板
+本仓库按独立 Skill 目录组织可复用的工作流程与专业知识，供协会成员在日常管理、项目推进、科研和工程任务中按需安装与使用
 
-## 快速开始
+目前收录 `agrotech-notices`，后续新增 Skills 时继续放入 `skills/`，不改变已有 Skill 的名称和调用入口
 
-本仓库是 Skill 文档集合，不需要编译、ROS 或专用硬件
+> [!IMPORTANT]
+> ## 参与本仓库开发
+>
+> **Issue → Branch → Commit → Push → Pull Request → 项目负责人 Merge**
+>
+> - 开始开发前，原则上先创建或认领 Issue
+> - 优先从 Issue 右侧 `Development` 创建任务分支，也可从最新 `main` 手动创建分支并关联 Issue
+> - 推荐分支名为 `feat/xxx`、`fix/xxx`、`refactor/xxx`、`docs/xxx`，一个分支只处理一个主题
+> - 修改后按主题小步 Commit，再 Push 自己的任务分支
+> - 通过 Pull Request 说明修改内容、关联 Issue 和验证方式
+> - 项目负责人检查 PR 后合并到 `main`，普通成员不要直接合并
+> - **请勿直接在 `main` 开发或 Push，更不要 Force Push**
+> - 如果误在 `main` 上产生了有用 Commit，先创建新分支保存提交，不要先执行 `reset --hard`
+>
+> 详细协作流程、角色权限和误操作处理见 [CONTRIBUTING.md](.github/CONTRIBUTING.md)
+
+## 1. Skills 目录
+
+| Skill | 功能 | 入口 |
+| --- | --- | --- |
+| [agrotech-notices](skills/agrotech-notices/README.md) | 起草与润色成员通知、名单公示、项目安排、比赛招募和私聊回复 | [SKILL.md](skills/agrotech-notices/SKILL.md) · [常用模板](skills/agrotech-notices/references/templates.md) |
+
+每个 Skill 都使用自己的 `SKILL.md`、参考材料与必要配置，新增 Skill 不应把文件直接散放在仓库根目录
+
+## 2. 安装与使用
+
+本仓库当前提供文档型 Skills，不需要编译或专用硬件
+
+以下以 Codex 和 `agrotech-notices` 为例，其他 Skill 可将路径中的名称替换为对应目录名
 
 ### Windows PowerShell
 
 ```powershell
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git
+git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
-Copy-Item -Recurse ".\agrotech-notices\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
+Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
 ```
 
 ### Linux / macOS
 
 ```sh
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git
+git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
 mkdir -p "$HOME/.codex/skills"
-cp -R agrotech-notices/agrotech-notices "$HOME/.codex/skills/"
+cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 ```
 
-上述命令适用于首次安装至 Codex 的默认个人技能目录，已经安装时可在备份旧目录后更新同名 Skill
+上述命令用于首次安装，更新已有 Skill 前请先备份原目录
 
-如设置了 `CODEX_HOME`，应将 Skill 放在其 `skills/agrotech-notices` 下，确保该文件夹内直接存在 `SKILL.md`
+如设置了 `CODEX_HOME`，请使用其下的 `skills` 目录，安装完成后应能直接找到 `skills/agrotech-notices/SKILL.md`
 
-安装后可在新对话中输入
+安装后可在新对话中调用
 
 ```text
-用 $agrotech-notices 帮我写一份新成员须知通知
-说明加入飞书、阅读成员须知与联系组长的安排
+用 $agrotech-notices 帮我写一份新成员通知
+说明加入飞书、阅读成员须知与向组长提交邮箱的安排
 ```
 
-预期会得到一份可直接复制到微信的纯文本中文通知，不包含 Markdown 加粗、标题或列表标记；缺少具体时间、联系人等信息时保留必要占位符
+`agrotech-notices` 默认生成可直接发送到微信的纯文本，不使用 Markdown 加粗或标题等标记
 
-## 包含的内容
-
-| Skill | 用途 | 说明 |
-| --- | --- | --- |
-| [agrotech-notices](agrotech-notices/README.md) | 群通知、名单公示、项目安排、比赛招募与私聊回复 | [Skill 规则](agrotech-notices/SKILL.md) · [常用模板](agrotech-notices/references/templates.md) |
-
-## 目录
+## 3. 仓库结构
 
 ```text
-.
+ATIL-Skills/
 ├── README.md
 ├── docs/
 │   └── plan.md
+├── skills/
+│   └── agrotech-notices/
+│       ├── SKILL.md
+│       ├── README.md
+│       ├── agents/openai.yaml
+│       └── references/templates.md
 ├── .github/
 │   ├── CONTRIBUTING.md
 │   ├── ISSUE_TEMPLATE/
 │   ├── pull_request_template.md
 │   └── rulesets/
 ├── .githooks/
-├── setup-scripts/
-└── agrotech-notices/
-    ├── README.md
-    ├── SKILL.md
-    ├── agents/openai.yaml
-    └── references/templates.md
+└── setup-scripts/
 ```
 
-## 参与维护
+## 4. 仓库维护与安全设置
 
-建议使用 `Issue → Branch → Pull Request → 负责人合并` 的协作流程，不直接修改 `main`
+- [项目规划](docs/plan.md) 记录已完成内容、当前工作和后续方向
+- [贡献指南](.github/CONTRIBUTING.md) 说明 Issue、分支、提交和 PR 的完整操作
+- [Issue Forms](.github/ISSUE_TEMPLATE/) 提供问题、功能和一般任务入口
+- [Pull Request 模板](.github/pull_request_template.md) 用于提交前检查改动
+- [分支保护说明](.github/rulesets/README.md) 解释 `main` 的远端保护规则
 
-- [当前规划](docs/plan.md)
-- [贡献指南](.github/CONTRIBUTING.md)
-- [分支保护规则说明](.github/rulesets/README.md)
+本地可选开启防误操作提醒
 
-仓库包含可选的本地 Git 防误操作提醒，首次克隆后可运行 `bash setup-scripts/setup-git.sh` 或 `.\setup-scripts\setup-git.ps1`
+```sh
+bash setup-scripts/setup-git.sh
+```
 
-仓库管理员如需启用远端分支保护，应按 [规则说明](.github/rulesets/README.md) 在 GitHub 设置中手动导入，文件存在不代表规则已经生效
+Windows PowerShell 使用 `.\setup-scripts\setup-git.ps1` 对应脚本
 
-## 维护组织
+公开仓库管理员还需要在 GitHub 的 `Settings → Rules → Rulesets` 中，手动导入 `.github/rulesets/main-protection.json` 并启用规则
+
+规则文件位于仓库内并不代表远端规则已经生效，本地 Git Hook 也不能代替 GitHub Ruleset
+
+正式稳定成果按照仓库规范使用 Git Tag 与 GitHub Release 发布
+
+## 5. 维护者
 
 [AgroTech Innovation Lab](https://github.com/AgroTech-SCAU)
