@@ -16,8 +16,20 @@
 | 06 | 个人项目参与资格调整通知 |
 | 07 | 比赛统一招募与队长选拔 |
 | 08 | 接受任务后恢复身份的私聊回复 |
+| 09 | 会服或物资自愿订购 |
+| 10 | 活动报名与人员招募 |
+| 11 | 会议或组会安排 |
+| 12 | 新成员欢迎与入群引导 |
+| 13 | 培训或工作坊安排 |
+| 14 | 任务分工与开放认领 |
+| 15 | 项目进度反馈与节点提醒 |
+| 16 | 材料征集、提交与补交 |
+| 17 | 物资借用与归还 |
+| 18 | 工作或项目交接 |
+| 19 | 时间、地点变更及延期、取消 |
+| 20 | 成果展示与贡献致谢 |
 
-不使用技能时，也可以直接打开 [常用模板](references/templates.md)，替换【】中的信息并删去不适用的段落。
+现有 20 类模板分为 [成员与项目通知（01—08）](references/templates.md) 和 [日常组织通知（09—20）](references/daily-notices.md)。不使用技能时也可直接改写模板，替换【】中的信息并删去不适用段落。
 
 ## 在 Codex 中使用
 
@@ -28,7 +40,7 @@
 Windows PowerShell 安装示例：
 
 ~~~powershell
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
+git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
 Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
 ~~~
@@ -36,7 +48,7 @@ Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.co
 macOS / Linux 安装示例：
 
 ~~~sh
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
+git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
 mkdir -p "$HOME/.codex/skills"
 cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 ~~~
@@ -58,6 +70,13 @@ cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 【在这里粘贴原稿】
 ~~~
 
+会服订购等日常通知也可以直接调用：
+
+~~~text
+用 $agrotech-notices 写会服订购通知：所有成员自愿购买对应组别的款式，每件 55 元。
+有意订购者在随附表格登记，标题、价格、时间和正文都不要加粗。
+~~~
+
 ## 提供哪些信息
 
 按实际情况提供通知对象、已确认的事实、本次安排、时间、联系人与希望的语气即可。已有原稿时直接粘贴；没有的细节可留作占位符。
@@ -66,7 +85,8 @@ cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 
 ## 文案约定
 
-- 默认用于微信，所有输出文稿采用纯文本，不使用 `**加粗**`、`# 标题`、Markdown 列表、代码块或 Markdown 链接。
+- 所有通知与回复均不加粗，标题、金额、姓名和时间也不例外；导出为其他格式时保持同样要求。
+- 默认用于微信，输出纯文本，不使用 Markdown 标题、列表、代码块、格式化链接或 HTML、富文本样式。
 - 重点内容通过换行、自然语言和中文序号区分，复制到微信后不应出现格式标记。
 - 正式、直接、尊重；群通知突出具体安排，私聊回复保持自然简短。
 - 正常退任、暂缓参与、误判后恢复和重新入会分别表述。
@@ -86,5 +106,6 @@ skills/agrotech-notices/
 ├── agents/
 │   └── openai.yaml
 └── references/
-    └── templates.md
+    ├── templates.md
+    └── daily-notices.md
 ~~~

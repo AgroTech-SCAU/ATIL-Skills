@@ -1,4 +1,4 @@
 interface:
   display_name: "AgroTech Innovation Lab 通知写作"
-  short_description: "起草 AgroTech Innovation Lab 群通知、成员公示与比赛招募文案"
-  default_prompt: "使用 $agrotech-notices，根据我提供的情况写一份可直接复制到微信发送的 AgroTech Innovation Lab 纯文本通知，不使用 Markdown 语法。"
+  short_description: "起草 AgroTech Innovation Lab 纯文本通知，覆盖日常协作、成员管理与活动招募"
+  default_prompt: "使用 $agrotech-notices，根据我提供的信息写一份可直接发送的纯文本通知，标题、金额、时间和正文均不加粗。"
