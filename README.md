@@ -26,7 +26,7 @@ AgroTech Innovation Lab 统一维护的 AI Agent Skills 集合
 
 | Skill | 功能 | 入口 |
 | --- | --- | --- |
-| [agrotech-notices](skills/agrotech-notices/README.md) | 起草与润色成员通知、名单公示、项目安排、比赛招募和私聊回复 | [SKILL.md](skills/agrotech-notices/SKILL.md) · [常用模板](skills/agrotech-notices/references/templates.md) |
+| [agrotech-notices](skills/agrotech-notices/README.md) | 20 类纯文本通知与回复，覆盖成员管理、日常协作、物资订购和活动招募；所有成稿均不加粗 | [SKILL.md](skills/agrotech-notices/SKILL.md) · [成员与项目模板](skills/agrotech-notices/references/templates.md) · [日常组织模板](skills/agrotech-notices/references/daily-notices.md) |
 
 每个 Skill 都使用自己的 `SKILL.md`、参考材料与必要配置，新增 Skill 不应把文件直接散放在仓库根目录
 
@@ -39,7 +39,7 @@ AgroTech Innovation Lab 统一维护的 AI Agent Skills 集合
 ### Windows PowerShell
 
 ```powershell
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
+git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
 Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
 ```
@@ -47,7 +47,7 @@ Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.co
 ### Linux / macOS
 
 ```sh
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git ATIL-Skills
+git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
 mkdir -p "$HOME/.codex/skills"
 cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 ```
@@ -63,7 +63,7 @@ cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 说明加入飞书、阅读成员须知与向组长提交邮箱的安排
 ```
 
-`agrotech-notices` 默认生成可直接发送到微信的纯文本，不使用 Markdown 加粗或标题等标记
+`agrotech-notices` 所有通知和回复均不加粗，包括标题、金额、日期和正文。默认生成可直接发送到微信的纯文本，不使用 Markdown 标题或其他富文本标记
 
 ## 3. 仓库结构
 
@@ -77,7 +77,9 @@ ATIL-Skills/
 │       ├── SKILL.md
 │       ├── README.md
 │       ├── agents/openai.yaml
-│       └── references/templates.md
+│       └── references/
+│           ├── templates.md
+│           └── daily-notices.md
 ├── .github/
 │   ├── CONTRIBUTING.md
 │   ├── ISSUE_TEMPLATE/

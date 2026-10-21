@@ -9,9 +9,10 @@ ATIL-Skills 是 AgroTech Innovation Lab 的 Skills 集合，面向协会日常�
 ## 已完成
 
 - [x] 建立 `skills/` 集合目录结构
-- [x] 收录 `skills/agrotech-notices/`，包含通知写作规则、提示配置和八类常用模板
+- [x] 收录 `skills/agrotech-notices/`，包含通知写作规则、提示配置和 20 类常用模板
 - [x] 统一正式组织名称为 `AgroTech Innovation Lab`
-- [x] 为微信通知写作明确纯文本输出规则
+- [x] 为所有通知和回复明确不加粗要求，微信成稿采用纯文本
+- [x] 补充会服订购、活动会议、培训迎新、任务进度、材料提交、物资借还、工作交接和成果致谢模板
 - [x] 配置根目录 README、协作指南、Issue Forms、PR 模板及分支保护规则文件
 
 ## 当前维护重点
