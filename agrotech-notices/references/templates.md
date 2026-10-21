@@ -1,6 +1,8 @@
-# AgroTech 通知常用模板
+# AgroTech Innovation Lab 通知常用模板
 
 以下是八类可直接改写的通知与回复。填入【】中的信息，删去不适用的段落；不要把候选措辞、说明或占位符一起发出。涉及具体决定的模板，仅在相应决定已经确认后使用确定式表述。
+
+最终发送到微信的文稿必须是纯文本。下面的 Markdown 标题和“使用提示”仅用于组织模板内容，不属于发送正文；不要在成稿中保留 `**`、`#`、代码块、Markdown 列表或链接语法。
 
 ## 01 未参与成员反馈通知
 
@@ -14,7 +16,7 @@
 
 请相关成员主动反馈，感谢配合。
 
-AgroTech
+AgroTech Innovation Lab
 【发布日期】
 
 使用提示：
@@ -24,7 +26,7 @@ AgroTech
 
 ## 02 成员名单更新说明
 
-📢 关于 AgroTech 协会成员名单更新的说明
+📢 关于 AgroTech Innovation Lab 成员名单更新的说明
 
 各位成员：
 
@@ -40,7 +42,7 @@ AgroTech
 
 感谢大家的理解与配合。
 
-AgroTech
+AgroTech Innovation Lab
 【发布日期】
 
 使用提示：
@@ -50,7 +52,7 @@ AgroTech
 
 ## 03 二次复查结果公示
 
-📢 关于 AgroTech 协会成员二次复查结果的公示
+📢 关于 AgroTech Innovation Lab 成员二次复查结果的公示
 
 各位成员：
 
@@ -68,7 +70,7 @@ AgroTech
 
 感谢大家的理解与配合。
 
-AgroTech
+AgroTech Innovation Lab
 【发布日期】
 
 使用提示：
@@ -90,7 +92,7 @@ AgroTech
 
 对既有实际贡献的认定，仍以实际完成的工作为依据。如对本次认定存在异议，可联系【联系人】提出复核。
 
-AgroTech
+AgroTech Innovation Lab
 【发布日期】
 
 可选的委婉表述：
@@ -121,7 +123,7 @@ AgroTech
 
 请各项目负责人在共同决定后落实相关安排，感谢配合。
 
-AgroTech
+AgroTech Innovation Lab
 【发布日期】
 
 使用提示：
@@ -143,7 +145,7 @@ AgroTech
 
 本次调整不影响对既有实际贡献的认定，相关成果署名及贡献认定仍以实际贡献为依据。如对本次决定存在异议，可联系【联系人】申请复核。
 
-AgroTech
+AgroTech Innovation Lab
 【发布日期】
 
 使用提示：
@@ -173,7 +175,7 @@ AgroTech
 
 欢迎有意向的同学主动报名，共同推进备赛工作。
 
-AgroTech
+AgroTech Innovation Lab
 【发布日期】
 
 本次对话的可参考方案：

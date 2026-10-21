@@ -1,6 +1,6 @@
-# AgroTech 通知写作 Skill
+# AgroTech Innovation Lab 通知写作 Skill
 
-用于 AgroTech 协会与实验室的中文通知起草、润色和私聊回复，提供可直接改写的文案骨架，并保留已确认的协会沟通口径。
+用于 AgroTech Innovation Lab 的中文通知起草、润色和私聊回复，提供可直接改写的文案骨架，并保留已确认的组织沟通口径。
 
 技能名：agrotech-notices
 
@@ -21,21 +21,27 @@
 
 ## 在 Codex 中使用
 
-将本仓库保存到个人技能目录中，文件夹名称保留为 agrotech-notices，确保其中直接包含 SKILL.md。
+仓库根目录包含 `agrotech-notices/` 子目录，安装时应将这个子目录复制到个人技能目录，并确保目标文件夹中直接包含 `SKILL.md`
 
 默认个人技能目录为 ~/.codex/skills；如果设置了 CODEX_HOME，则使用其下的 skills 目录。
 
 Windows PowerShell 安装示例：
 
 ~~~powershell
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git "$env:USERPROFILE\.codex\skills\agrotech-notices"
+git clone https://github.com/AgroTech-SCAU/agrotech-notices.git
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
+Copy-Item -Recurse ".\agrotech-notices\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
 ~~~
 
 macOS / Linux 安装示例：
 
 ~~~sh
-git clone https://github.com/AgroTech-SCAU/agrotech-notices.git "$HOME/.codex/skills/agrotech-notices"
+git clone https://github.com/AgroTech-SCAU/agrotech-notices.git
+mkdir -p "$HOME/.codex/skills"
+cp -R agrotech-notices/agrotech-notices "$HOME/.codex/skills/"
 ~~~
+
+以上命令用于首次安装，已经安装时请先备份原有同名目录再更新
 
 安装后，在下一轮消息中调用：
 
@@ -60,6 +66,8 @@ git clone https://github.com/AgroTech-SCAU/agrotech-notices.git "$HOME/.codex/sk
 
 ## 文案约定
 
+- 默认用于微信，所有输出文稿采用纯文本，不使用 `**加粗**`、`# 标题`、Markdown 列表、代码块或 Markdown 链接。
+- 重点内容通过换行、自然语言和中文序号区分，复制到微信后不应出现格式标记。
 - 正式、直接、尊重；群通知突出具体安排，私聊回复保持自然简短。
 - 正常退任、暂缓参与、误判后恢复和重新入会分别表述。
 - 成员身份调整不否定既有实际贡献，成果署名与贡献认定以实际贡献为依据。
