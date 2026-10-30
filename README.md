@@ -4,7 +4,7 @@ AgroTech Innovation Lab 统一维护的 AI Agent Skills 集合
 
 本仓库按独立 Skill 目录组织可复用的工作流程与专业知识，供协会成员在日常管理、项目推进、科研和工程任务中按需安装与使用
 
-目前收录 `agrotech-notices`，后续新增 Skills 时继续放入 `skills/`，不改变已有 Skill 的名称和调用入口
+目前收录 `agrotech-notices`（通知与回复）和 `report-briefing`（工作汇报与现场安排）；后续新增 Skills 时继续放入 `skills/`，不改变已有 Skill 的名称和调用入口
 
 > [!IMPORTANT]
 > ## 参与本仓库开发
@@ -27,36 +27,56 @@ AgroTech Innovation Lab 统一维护的 AI Agent Skills 集合
 | Skill | 功能 | 入口 |
 | --- | --- | --- |
 | [agrotech-notices](skills/agrotech-notices/README.md) | 20 类纯文本通知与回复，覆盖成员管理、日常协作、物资订购和活动招募；所有成稿均不加粗 | [SKILL.md](skills/agrotech-notices/SKILL.md) · [成员与项目模板](skills/agrotech-notices/references/templates.md) · [日常组织模板](skills/agrotech-notices/references/daily-notices.md) |
+| [report-briefing](skills/report-briefing/README.md) | 将零散信息整理为工作计划、进展或结果汇报；现场安排中保持目标、分工、执行和成果逐项对应，缺项保留占位 | [SKILL.md](skills/report-briefing/SKILL.md) · [现场安排模板](skills/report-briefing/references/field-plan-template.md) · [会议依据](skills/report-briefing/references/meeting-basis.md) |
 
 每个 Skill 都使用自己的 `SKILL.md`、参考材料与必要配置，新增 Skill 不应把文件直接散放在仓库根目录
+
+需要面向成员发布通知或私聊回复时使用 `agrotech-notices`；需要向负责人说明目标、人员、任务、进展和结果时使用 `report-briefing`
 
 ## 2. 安装与使用
 
 本仓库当前提供文档型 Skills，不需要编译或专用硬件
 
-以下以 Codex 和 `agrotech-notices` 为例，其他 Skill 可将路径中的名称替换为对应目录名
+以下以 Codex 和 `report-briefing` 为例；将技能名称改为 `agrotech-notices` 即可安装通知写作 Skill
 
 ### Windows PowerShell
 
 ```powershell
 git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
-Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
+$skillName = "report-briefing"
+$codexRoot = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USERPROFILE ".codex" }
+$skillsRoot = Join-Path $codexRoot "skills"
+New-Item -ItemType Directory -Force $skillsRoot | Out-Null
+Copy-Item -Recurse ".\ATIL-Skills\skills\$skillName" (Join-Path $skillsRoot $skillName)
 ```
 
 ### Linux / macOS
 
 ```sh
 git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
-mkdir -p "$HOME/.codex/skills"
-cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
+skill_name=report-briefing
+codex_root=${CODEX_HOME:-"$HOME/.codex"}
+mkdir -p "$codex_root/skills"
+cp -R "ATIL-Skills/skills/$skill_name" "$codex_root/skills/"
 ```
 
-上述命令用于首次安装，更新已有 Skill 前请先备份原目录
+仓库只需 clone 一次；需要两项 Skill 时，更换技能名称后再次执行复制命令即可
 
-如设置了 `CODEX_HOME`，请使用其下的 `skills` 目录，安装完成后应能直接找到 `skills/agrotech-notices/SKILL.md`
+上述命令用于首次安装；更新已有 Skill 时，先备份并移出旧的同名目录，再复制新目录，避免形成多层嵌套或残留旧文件
+
+如设置了 `CODEX_HOME`，示例会使用其下的 `skills` 目录；安装完成后，目标应为 `<技能目录>/<skill-name>/SKILL.md`，并保留该 Skill 的 `references/` 等附属文件
 
 安装后可在新对话中调用
+
+工作汇报与现场安排：
+
+```text
+用 $report-briefing 帮我把下面的信息整理成可复制到微信的现场安排
+目标、分工、执行和成果按同一任务顺序对应，缺项留具体占位，不补造事实
+【粘贴本次时间、地点、人员、设备和任务信息】
+```
+
+通知与回复：
 
 ```text
 用 $agrotech-notices 帮我写一份新成员通知
@@ -64,6 +84,8 @@ cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
 ```
 
 `agrotech-notices` 所有通知和回复均不加粗，包括标题、金额、日期和正文。默认生成可直接发送到微信的纯文本，不使用 Markdown 标题或其他富文本标记
+
+`report-briefing` 默认生成纯文本分点汇报；事前计划、进展和结果采用各自的重点，未确认信息保留具体占位，不将计划写成已完成事项；用户另有格式要求时按要求输出
 
 ## 3. 仓库结构
 
@@ -73,13 +95,19 @@ ATIL-Skills/
 ├── docs/
 │   └── plan.md
 ├── skills/
-│   └── agrotech-notices/
+│   ├── agrotech-notices/
+│   │   ├── SKILL.md
+│   │   ├── README.md
+│   │   ├── agents/openai.yaml
+│   │   └── references/
+│   │       ├── templates.md
+│   │       └── daily-notices.md
+│   └── report-briefing/
 │       ├── SKILL.md
 │       ├── README.md
-│       ├── agents/openai.yaml
 │       └── references/
-│           ├── templates.md
-│           └── daily-notices.md
+│           ├── field-plan-template.md
+│           └── meeting-basis.md
 ├── .github/
 │   ├── CONTRIBUTING.md
 │   ├── ISSUE_TEMPLATE/
