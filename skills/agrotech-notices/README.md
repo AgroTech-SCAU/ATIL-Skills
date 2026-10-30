@@ -37,25 +37,11 @@
 
 默认个人技能目录为 ~/.codex/skills；如果设置了 CODEX_HOME，则使用其下的 skills 目录。
 
-Windows PowerShell 安装示例：
+Windows PowerShell 与 macOS / Linux 的完整命令见[仓库安装说明](../../README.md#2-安装与使用)，将示例中的技能名称设为 `agrotech-notices` 即可
 
-~~~powershell
-git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
-Copy-Item -Recurse ".\ATIL-Skills\skills\agrotech-notices" "$env:USERPROFILE\.codex\skills\agrotech-notices"
-~~~
+更新已有安装时，先备份并移出旧的同名目录，再复制新目录，避免形成多层嵌套或残留旧文件
 
-macOS / Linux 安装示例：
-
-~~~sh
-git clone https://github.com/AgroTech-SCAU/ATIL-Skills.git ATIL-Skills
-mkdir -p "$HOME/.codex/skills"
-cp -R ATIL-Skills/skills/agrotech-notices "$HOME/.codex/skills/"
-~~~
-
-以上命令用于首次安装，已经安装时请先备份原有同名目录再更新
-
-安装后，在下一轮消息中调用：
+安装后可在新对话中调用：
 
 ~~~text
 用 $agrotech-notices，帮我写一份可发微信群的成员二次复查结果公示。

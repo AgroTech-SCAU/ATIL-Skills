@@ -10,6 +10,9 @@ ATIL-Skills 是 AgroTech Innovation Lab 的 Skills 集合，面向协会日常�
 
 - [x] 建立 `skills/` 集合目录结构
 - [x] 收录 `skills/agrotech-notices/`，包含通知写作规则、提示配置和 20 类常用模板
+- [x] 收录 `skills/report-briefing/`，覆盖事前计划、进行中进展和事后结果汇报，包含现场安排占位模板与会议依据
+- [x] 明确现场安排中目标、分工、执行和成果的任务序号、名称与顺序一一对应，缺项使用具体占位
+- [x] 为两项 Skill 提供独立 README，并同步根目录清单、安装说明和调用示例
 - [x] 统一正式组织名称为 `AgroTech Innovation Lab`
 - [x] 为所有通知和回复明确不加粗要求，微信成稿采用纯文本
 - [x] 补充会服订购、活动会议、培训迎新、任务进度、材料提交、物资借还、工作交接和成果致谢模板
@@ -20,6 +23,7 @@ ATIL-Skills 是 AgroTech Innovation Lab 的 Skills 集合，面向协会日常�
 - [ ] 新增 Skill 前明确使用场景、边界、输入与交付形式
 - [ ] 保持每个 Skill 的 `SKILL.md`、附属材料及独立 README 路径一致
 - [ ] 新增或调整 Skill 后同步更新根目录清单与安装说明
+- [ ] 复核 `report-briefing` 在不同任务数量、多个出发点和信息不完整时的使用体验，保持任务对应与事实状态准确
 - [ ] 检查示例内容不包含隐私、账号密钥或未经确认的内部决策
 - [ ] 维护者按需要在远端配置仓库规则，不能仅依赖仓库内的规则文件
 
@@ -28,6 +32,7 @@ ATIL-Skills 是 AgroTech Innovation Lab 的 Skills 集合，面向协会日常�
 - 一个 Skill 对应一个独立目录，目录名与 `SKILL.md` 的 `name` 保持一致
 - 复杂模板或参考材料放入该 Skill 的 `references/`，可选的 Agent 展示配置放入 `agents/`
 - README 面向使用者，说明用途、安装路径和最小调用示例
+- 参考资料保留来源和可靠性说明；来源未随仓库分发时明确注明，不把维护者本机绝对路径作为使用依赖
 - 将需求、缺陷和维护工作记录在 Issue 中，按任务分支和 PR 的协作流程合并
 - 已有 Skill 标识不随展示名称或组织称谓变化而轻易修改
 
