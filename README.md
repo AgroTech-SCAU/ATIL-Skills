@@ -27,7 +27,7 @@ AgroTech Innovation Lab 统一维护的 AI Agent Skills 集合
 | Skill | 功能 | 入口 |
 | --- | --- | --- |
 | [agrotech-notices](skills/agrotech-notices/README.md) | 20 类纯文本通知与回复，覆盖成员管理、日常协作、物资订购和活动招募；所有成稿均不加粗 | [SKILL.md](skills/agrotech-notices/SKILL.md) · [成员与项目模板](skills/agrotech-notices/references/templates.md) · [日常组织模板](skills/agrotech-notices/references/daily-notices.md) |
-| [report-briefing](skills/report-briefing/README.md) | 将零散信息整理为工作计划、进展或结果汇报；现场安排中保持目标、分工、执行和成果逐项对应，缺项保留占位 | [SKILL.md](skills/report-briefing/SKILL.md) · [现场安排模板](skills/report-briefing/references/field-plan-template.md) · [会议依据](skills/report-briefing/references/meeting-basis.md) |
+| [report-briefing](skills/report-briefing/README.md) | 将零散信息整理为事前安排、进展或结果汇报；采用分级标题和章节分隔线，保持目标、分工、执行和成果逐项对应，缺项保留占位 | [SKILL.md](skills/report-briefing/SKILL.md) · [事前安排模板](skills/report-briefing/references/field-plan-template.md) · [事后汇报模板](skills/report-briefing/references/completion-report-template.md) · [会议依据](skills/report-briefing/references/meeting-basis.md) |
 
 每个 Skill 都使用自己的 `SKILL.md`、参考材料与必要配置，新增 Skill 不应把文件直接散放在仓库根目录
 
@@ -71,7 +71,8 @@ cp -R "ATIL-Skills/skills/$skill_name" "$codex_root/skills/"
 工作汇报与现场安排：
 
 ```text
-用 $report-briefing 帮我把下面的信息整理成可复制到微信的现场安排
+用 $report-briefing 帮我把下面的信息整理成现场安排，使用 1.、1.1.、1.1.1. 分级标题
+文档标题后、一级章节之间加 ---，末尾不再总结
 目标、分工、执行和成果按同一任务顺序对应，缺项留具体占位，不补造事实
 【粘贴本次时间、地点、人员、设备和任务信息】
 ```
@@ -85,7 +86,7 @@ cp -R "ATIL-Skills/skills/$skill_name" "$codex_root/skills/"
 
 `agrotech-notices` 所有通知和回复均不加粗，包括标题、金额、日期和正文。默认生成可直接发送到微信的纯文本，不使用 Markdown 标题或其他富文本标记
 
-`report-briefing` 默认生成纯文本分点汇报；事前计划、进展和结果采用各自的重点，未确认信息保留具体占位，不将计划写成已完成事项；用户另有格式要求时按要求输出
+`report-briefing` 默认生成 Markdown 分级汇报，标题采用 `1.`、`1.1.`、`1.1.1.` 编号，文档标题后及一级章节之间使用 `---` 分隔，末尾不再追加总结；事前安排、进展和结果采用各自的重点，未确认信息保留具体占位，不将计划写成已完成事项；用户另有格式要求时按要求输出
 
 ## 3. 仓库结构
 
@@ -107,6 +108,7 @@ ATIL-Skills/
 │       ├── README.md
 │       └── references/
 │           ├── field-plan-template.md
+│           ├── completion-report-template.md
 │           └── meeting-basis.md
 ├── .github/
 │   ├── CONTRIBUTING.md
