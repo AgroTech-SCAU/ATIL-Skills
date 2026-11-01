@@ -10,7 +10,9 @@ ATIL-Skills 是 AgroTech Innovation Lab 的 Skills 集合，面向协会日常�
 
 - [x] 建立 `skills/` 集合目录结构
 - [x] 收录 `skills/agrotech-notices/`，包含通知写作规则、提示配置和 20 类常用模板
-- [x] 收录 `skills/report-briefing/`，覆盖事前计划、进行中进展和事后结果汇报，包含现场安排占位模板与会议依据
+- [x] 收录 `skills/report-briefing/`，覆盖事前安排、进行中进展和事后结果汇报，包含事前安排、事后汇报两份占位模板与会议依据
+- [x] 统一两份模板的分级标题编号及一级章节分隔线，末尾不再重复总结
+- [x] 车辆安排采用打车请求及逐车出发地、联系人写法，避免重复列联系人
 - [x] 明确现场安排中目标、分工、执行和成果的任务序号、名称与顺序一一对应，缺项使用具体占位
 - [x] 为两项 Skill 提供独立 README，并同步根目录清单、安装说明和调用示例
 - [x] 统一正式组织名称为 `AgroTech Innovation Lab`
